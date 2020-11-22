@@ -33,7 +33,7 @@ class Task extends EventEmitter implements ListTask {
   async start() {
     try {
       const data = await leetcode.problems.request();
-      data.problems.forEach(problem => {
+      data.problems.forEach((problem) => {
         this.emit('data', {
           label: `${colors.green(screenPadEnd(problem.status === 'ac' ? '*' : '', 3, ' '))}${screenPadEnd(
             problem.stat.frontend_question_id || '',
@@ -68,7 +68,7 @@ class Task extends EventEmitter implements ListTask {
 export default class LeetcodeList implements IList {
   public readonly name = 'LeetcodeProblems';
   public readonly interactive = false;
-  public readonly description = 'Problems of leetcode-cn';
+  public readonly description = 'Problems of leetcode';
   public readonly defaultAction = 'open';
   public actions: ListAction[] = [
     {

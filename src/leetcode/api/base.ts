@@ -9,13 +9,13 @@ const log = logger.getlog('Api');
 
 export class Base extends Dispose {
   protected method: Method = 'GET';
-  protected url = 'https://leetcode-cn.com/graphql/';
+  protected url = 'https://leetcode.com/graphql/';
   protected readonly headers: Record<string, string> = {};
 
   protected getHeaders() {
     return {
       'Content-Type': 'application/json;charset=utf-8',
-      Referer: 'https://leetcode-cn.com/',
+      Referer: 'https://leetcode.com/',
       'x-csrftoken': state.csrftoken,
       cookie: state.cookies,
       ...this.headers,
@@ -39,13 +39,13 @@ export class Base extends Dispose {
       headers: this.getHeaders(),
       data,
     })
-      .then(res => {
+      .then((res) => {
         state.updateByHeaders(res.headers);
         log(`response-data: [${this.method}] ${this.url}`);
         log(`response-data: ${JSON.stringify(res.data)}`);
         return res.data;
       })
-      .catch(err => {
+      .catch((err) => {
         if (/Request failed with status code 403/.test(err.message)) {
           notification.show(['需要登录'], 2000, MessageType.fail);
         }

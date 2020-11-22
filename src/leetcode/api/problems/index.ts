@@ -37,7 +37,7 @@ class Translations extends Base {
 
 class Details extends Base {
   method: Method = 'GET';
-  url = 'https://leetcode-cn.com/api/problems/all/';
+  url = 'https://leetcode.com/api/problems/all/';
 }
 
 export enum ProblemLevel {

@@ -45,11 +45,11 @@ class CheckRun extends Base {
 
   constructor(id: string) {
     super();
-    this.url = `https://leetcode-cn.com/submissions/detail/${id}/check/`;
+    this.url = `https://leetcode.com/submissions/detail/${id}/check/`;
   }
 
   check(): Promise<CheckResult> {
-    return new Promise(async resolve => {
+    return new Promise(async (resolve) => {
       const check = async () => {
         const res: CheckResult = await this.request();
         if (res.state === CheckState.success) {
@@ -68,7 +68,7 @@ export class Interpret extends Base {
 
   constructor(slug: string) {
     super();
-    this.url = `https://leetcode-cn.com/problems/${slug}/interpret_solution/`;
+    this.url = `https://leetcode.com/problems/${slug}/interpret_solution/`;
   }
 
   getParams(params: Params) {
